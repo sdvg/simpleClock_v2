@@ -1,9 +1,3 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
-
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
-// });
-
 var getTitleFormat = function(date) {
     //todo: format from config
     return date.format('d.m.Y, \\K\\W W, H:i');
