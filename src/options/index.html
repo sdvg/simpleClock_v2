@@ -4,29 +4,63 @@
         <meta charset="utf-8">
         <title>simpleClock settings</title>
 
+        <link rel="stylesheet" href="css/chrome_widgets.css">
         <link rel="stylesheet" href="css/main.css">
 
         <script src="lib/store.js"></script>
-        <script src="js/main.js"></script>
     </head>
     <body>
         <h1>simpleClock settings</h1>
 
-        <fieldset>
-            <legend>Behaviour</legend>
-            <label for="">on click:</label><br>
-            <input type="radio">show mini-calendar<br>
-            <input type="radio">open Link: <input type="url">
-        </fieldset>
+        <h2>Behaviour</h2>
 
         <fieldset>
-            <legend>apperance</legend>
-            <label for="">Clock color</label><br>
-            <input type="color"><br>
-            <label for="">Title on hover</label><br>
-            <input type="radio">d.m.Y h:m (09.12.2012 12:12)<br>
-            <input type="radio">m/d/Y h:m (12/09/2012 12:12)<br>
-            <input type="radio">custom: <input type="text" placeholder="date format"><br>
+            <span class="settings-row">Action on icon click</span>
+            <div class="radio">
+                <label>
+                    <input type="radio">
+                    <span>show mini-calendar</span>
+                </label>
+            </div>
+
+            <div class="radio hasTextField">
+                <label>
+                    <input type="radio">
+                    <span>open link: <input type="url" placeholder="http://example.org"></span>
+                </label>
+            </div>
         </fieldset>
+
+        <h2>Apperance</h2>
+
+        <fieldset>
+            <span class="settings-row">Select clock font-color</span>
+            <input type="color">
+
+            <span class="settings-row">Title on hover</span>
+
+            <div class="radio">
+                <label>
+                    <input type="radio">
+                    <span>d.m.Y h:m (09.12.2012 12:12)</span>
+                </label>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input type="radio">
+                    <span>m/d/Y h:m (12/09/2012 12:12)</span>
+                </label>
+            </div>
+
+            <div class="radio hasTextField">
+                <label>
+                    <input type="radio">
+                    <span>custom: <input type="text" placeholder="date format"></span>
+                </label>
+            </div>
+        </fieldset>
+
+
     </body>
 </html>

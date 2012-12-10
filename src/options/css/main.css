@@ -1,0 +1,62 @@
+body {
+    color: #303942;
+    display: block;
+    font-family: 'Lucida Grande', sans-serif;
+    font-size: 12px;
+    position: relative;
+    width: 790px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    -webkit-user-select: none;
+    cursor: default;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 18px;
+    margin: 0 0 13px 0;
+    padding: 21px 0 13px;
+}
+
+h1:after {
+    -webkit-margin-end: 20px;
+    background-color: #EEE;
+    content: ' ';
+    display: block;
+    height: 1px;
+    position: relative;
+    top: 13px;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+h3 {
+    font-size: 13px;
+    color: #000;
+}
+
+fieldset {
+    padding-left: 18px;
+    border: none;
+}
+
+.settings-row {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type=radio] {
+    bottom: 1px;
+}
+
+.radio.hasTextField input[type=radio] {
+    bottom: -3px;
+}
+
+.settings-row:not(:first-of-type) {
+    margin-top: 13px;
+}
