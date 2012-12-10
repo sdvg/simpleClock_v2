@@ -60,3 +60,11 @@ input[type=radio] {
 .settings-row:not(:first-of-type) {
     margin-top: 13px;
 }
+
+#clickActionURL:invalid {
+    border: 1px solid red;
+}
+
+.weekformat {
+    width: 40px;
+}

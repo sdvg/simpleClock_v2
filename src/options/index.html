@@ -6,8 +6,6 @@
 
         <link rel="stylesheet" href="css/chrome_widgets.css">
         <link rel="stylesheet" href="css/main.css">
-
-        <script src="lib/store.js"></script>
     </head>
     <body>
         <h1>simpleClock settings</h1>
@@ -18,15 +16,15 @@
             <span class="settings-row">Action on icon click</span>
             <div class="radio">
                 <label>
-                    <input type="radio">
+                    <input type="radio" name="clickAction" value="calendar">
                     <span>show mini-calendar</span>
                 </label>
             </div>
 
             <div class="radio hasTextField">
                 <label>
-                    <input type="radio">
-                    <span>open link: <input type="url" placeholder="http://example.org"></span>
+                    <input type="radio" name="clickAction" value="link">
+                    <span>open link: <input type="url" id="clickActionURL" placeholder="http://example.org" disabled></span>
                 </label>
             </div>
         </fieldset>
@@ -35,32 +33,23 @@
 
         <fieldset>
             <span class="settings-row">Select clock font-color</span>
-            <input type="color">
+            <input type="color" id="color">
 
             <span class="settings-row">Title on hover</span>
 
-            <div class="radio">
-                <label>
-                    <input type="radio">
-                    <span>d.m.Y h:m (09.12.2012 12:12)</span>
-                </label>
+            <div>
+                <select id="titleDateFormat_date">
+                </select>,
+                <select id="titleDateFormat_time">
+                </select>,
+                <input type="text" id="titleDateFormat_week" class="weekformat">
+                <span id="calenderweek"></span>
             </div>
 
-            <div class="radio">
-                <label>
-                    <input type="radio">
-                    <span>m/d/Y h:m (12/09/2012 12:12)</span>
-                </label>
-            </div>
-
-            <div class="radio hasTextField">
-                <label>
-                    <input type="radio">
-                    <span>custom: <input type="text" placeholder="date format"></span>
-                </label>
-            </div>
         </fieldset>
 
-
+        <script src="lib/jquery-1.8.3.min.js"></script>
+        <script src="lib/dateformat.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
