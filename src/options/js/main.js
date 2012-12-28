@@ -1,9 +1,17 @@
-var defaults = {
-    'clickAction': {
-        'type': 'calendar'
-    },
-    'color': '#000',
-    'titleDateFormat': 'd.m.Y, H:i'
+/*
+ * config restore
+ */
+//set clickaction value:
+$('[name="clickAction"][value="'+localStorage.clickAction+'"]').attr('checked', true);
+
+//set clickaction_URL value:
+if(localStorage.clickAction === 'url' && typeof localStorage.clickAction_url !== 'undefined') {
+    $('#clickActionURL').attr('disabled', false).val(localStorage.clickAction_url)
+}
+
+//set color value:
+if(typeof localStorage.color !== 'undefined') {
+    $('#color').val(localStorage.color);
 }
 
 //set "title on hover"-options
@@ -25,15 +33,19 @@ $('#titleDateFormat_time').html(timeOptions);
 //Week
 $('#calenderweek').text(now.format('W'));
 
-//change actions:
+/*
+ * change actions:
+ */
 $('[name="clickAction"]').change(function() {
     $('#clickActionURL').attr('disabled', true);
 
     switch($(this).val()) {
         case 'calendar':
+            localStorage.removeItem('clickAction_url');
+            $('#clickActionURL').val('');
             localStorage.clickAction = 'calendar';
             break;
-        case 'link':
+        case 'url':
             $('#clickActionURL').attr('disabled', false);
             break;
     }
@@ -41,11 +53,12 @@ $('[name="clickAction"]').change(function() {
 
 $('#clickActionURL').keyup(function() {
     if( $(this).is(':valid') ) {
-        localStorage.clickAction = 'link';
-        localStorage.clickAction_link = $(this).val();
+        localStorage.clickAction = 'url';
+        localStorage.clickAction_url = $(this).val();
     }
 });
 
 $('#color').change(function() {
     localStorage.color = $(this).val();
+    chrome.extension.sendMessage({});
 });

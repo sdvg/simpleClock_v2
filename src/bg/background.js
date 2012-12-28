@@ -1,3 +1,18 @@
+var defaultConfig = {
+    'clickAction': 'calendar',
+    'color': '#000',
+    'titleDateFormat': 'd.m.Y, H:i'
+};
+
+for(var i in defaultConfig) {
+    if(defaultConfig.hasOwnProperty(i)) {
+        if(typeof localStorage[i] === 'undefined') {
+            localStorage[i] = defaultConfig[i];
+        }
+    }
+}
+
+
 var getTitleFormat = function(date) {
     //todo: format from config
     return date.format('d.m.Y, \\K\\W W, H:i');
@@ -8,12 +23,10 @@ canvas.width = 19;
 canvas.height = 19;
 
 var ctx = canvas.getContext('2d');
-//todo: color from config
-ctx.fillStyle = '#000';
 ctx.font = '8pt Arial';
 
-
 var setTime = function() {
+    ctx.fillStyle = localStorage.color;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     var now = new Date();
@@ -28,3 +41,9 @@ var setTime = function() {
 }
 
 setTime();
+
+chrome.extension.onMessage.addListener(
+    function() {
+        setTime();
+    }
+);
