@@ -14,7 +14,7 @@
   },
   "background": {
     "scripts": [
-      "src/bg/dateformat.js",
+      "src/lib/dateformat.js",
       "src/bg/background.js"
     ],
     "persistent": true
