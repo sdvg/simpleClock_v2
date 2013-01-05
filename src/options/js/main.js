@@ -21,8 +21,8 @@ if(typeof localStorage.color !== 'undefined') {
 var now = new Date();
 
 //Date
-var dateformats = ['d.m.Y', 'd/m/m', 'd-m-Y', 'n/j/y', 'j/n/y', 'j/m/y',
-                   'd/m/y', 'j/n/Y', 'd/m/Y', 'Y-m-d', 'Y/m/d'];
+var dateformats = ['d.m.Y', 'd/m/Y', 'd-m-Y', 'n/j/y', 'j/n/y',
+                   'd/m/y', 'j/n/Y', 'Y-m-d', 'Y/m/d'];
 var dateOptions = '';
 dateformats.forEach(function(format) {
     dateOptions += '<option value="'+format+'">'+format+' ('+now.format(format)+')</option>'
