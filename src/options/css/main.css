@@ -20,7 +20,7 @@ h1 {
     padding: 21px 0 13px;
 }
 
-h1:after {
+h1:after, .footer:before {
     -webkit-margin-end: 20px;
     background-color: #EEE;
     content: ' ';
@@ -28,6 +28,29 @@ h1:after {
     height: 1px;
     position: relative;
     top: 13px;
+}
+
+.footer:before {
+    top: -10px;
+}
+
+.footer {
+    margin-top: 50px;
+    padding-left: 80px;
+    background: url(/icons/icon128.png) no-repeat center left / 63px;
+}
+
+.footer a {
+    color: #272727;
+}
+
+.footer p {
+    margin: 4px 0;
+}
+
+.pipes span:not(:first-child):before {
+    content: "|";
+    padding: 0 5px;
 }
 
 h2 {
