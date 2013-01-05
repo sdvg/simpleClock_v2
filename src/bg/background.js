@@ -1,7 +1,9 @@
 var defaultConfig = {
     'clickAction': 'calendar',
     'color': '#000',
-    'titleDateFormat': 'd.m.Y, H:i'
+    'titleDateFormat_date': 'd.m.Y',
+    'titleDateFormat_time': 'G\\:i',
+    'titleDateFormat_week': 'week'
 };
 
 for(var i in defaultConfig) {
@@ -14,8 +16,13 @@ for(var i in defaultConfig) {
 
 
 var getTitleFormat = function(date) {
-    //todo: format from config
-    return date.format('d.m.Y, \\K\\W W, H:i');
+    var format =
+    localStorage.titleDateFormat_date+'\\,\\ '+
+    localStorage.titleDateFormat_time+'\\,\\ '+
+    '\\'+localStorage.titleDateFormat_week.split('').join('\\')+
+    '\ W';
+
+    return date.format(format);
 }
 
 var canvas = document.createElement('canvas');

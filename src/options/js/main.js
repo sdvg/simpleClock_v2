@@ -2,11 +2,14 @@
  * config restore
  */
 //set clickaction value:
-$('[name="clickAction"][value="'+localStorage.clickAction+'"]').attr('checked', true);
+$('[name="clickAction"][value="'+localStorage.clickAction+'"]')
+    .attr('checked', true);
 
 //set clickaction_URL value:
-if(localStorage.clickAction === 'url' && typeof localStorage.clickAction_url !== 'undefined') {
-    $('#clickActionURL').attr('disabled', false).val(localStorage.clickAction_url)
+if(localStorage.clickAction === 'url' &&
+   typeof localStorage.clickAction_url !== 'undefined') {
+    $('#clickActionURL').attr('disabled', false)
+                        .val(localStorage.clickAction_url);
 }
 
 //set color value:
@@ -18,7 +21,8 @@ if(typeof localStorage.color !== 'undefined') {
 var now = new Date();
 
 //Date
-var dateformats = ['d/m/m', 'd-m-Y', 'd.m.Y', 'n/j/y', 'j/n/y', 'j/m/y', 'd/m/y', 'j/n/Y', 'd/m/Y', 'Y-m-d', 'Y/m/d'];
+var dateformats = ['d.m.Y', 'd/m/m', 'd-m-Y', 'n/j/y', 'j/n/y', 'j/m/y',
+                   'd/m/y', 'j/n/Y', 'd/m/Y', 'Y-m-d', 'Y/m/d'];
 var dateOptions = '';
 dateformats.forEach(function(format) {
     dateOptions += '<option value="'+format+'">'+format+' ('+now.format(format)+')</option>'
@@ -31,6 +35,9 @@ var timeOptions = '<option value="G\\:i">24h ('+now.format('G\\:i')+')</option> 
 $('#titleDateFormat_time').html(timeOptions);
 
 //Week
+if(typeof localStorage.titleDateFormat_week !== 'undefined') {
+    $('#titleDateFormat_week').val(localStorage.titleDateFormat_week);
+}
 $('#calenderweek').text(now.format('W'));
 
 /*
@@ -60,5 +67,13 @@ $('#clickActionURL').keyup(function() {
 
 $('#color').change(function() {
     localStorage.color = $(this).val();
+    chrome.extension.sendMessage({});
+});
+
+$('[id^=titleDateFormat_]').bind('change keyup', function() {
+    localStorage.titleDateFormat_date = $('#titleDateFormat_date').val();
+    localStorage.titleDateFormat_time = $('#titleDateFormat_time').val();
+    localStorage.titleDateFormat_week = $('#titleDateFormat_week').val();
+
     chrome.extension.sendMessage({});
 });
