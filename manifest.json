@@ -1,11 +1,11 @@
 {
   "name": "simpleClock",
-  "version": "2.0",
+  "version": "2.1",
   "manifest_version": 2,
   "permissions": [
     "tabs"
   ],
-  "description": "Shows a simple clock top right in the browser. You can choose between the mini-calendar and a URL that will open, when you click onto the clock. You can set the URL, the date-format for the tooltip and the color of the clock-letters on the options-page.",
+  "description": "Shows a simple clock top right in the browser. The color is free selectable.",
   "homepage_url": "https://github.com/sdvg/simpleClock_v2",
   "icons": {
     "16": "icons/icon16.png",
