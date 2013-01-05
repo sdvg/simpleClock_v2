@@ -25,6 +25,23 @@ var getTitleFormat = function(date) {
     return date.format(format);
 }
 
+function createTab(tab) {
+    chrome.tabs.create({
+        'url': localStorage.clickAction_url
+    });
+}
+var setBrowserAction = function() {
+    chrome.browserAction.onClicked.removeListener(createTab);
+
+    if( localStorage.clickAction === 'url' ) {
+        chrome.browserAction.setPopup({'popup': ''});
+        chrome.browserAction.onClicked.addListener(createTab);
+    }
+    else {
+        chrome.browserAction.setPopup({'popup': 'src/browser_action/browser_action.html'});
+    }
+}
+
 var canvas = document.createElement('canvas');
 canvas.width = 19;
 canvas.height = 19;
@@ -48,9 +65,11 @@ var setTime = function() {
 }
 
 setTime();
+setBrowserAction();
 
 chrome.extension.onMessage.addListener(
     function() {
         setTime();
+        setBrowserAction();
     }
 );

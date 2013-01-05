@@ -51,6 +51,7 @@ $('[name="clickAction"]').change(function() {
             localStorage.removeItem('clickAction_url');
             $('#clickActionURL').val('');
             localStorage.clickAction = 'calendar';
+            chrome.extension.sendMessage({});
             break;
         case 'url':
             $('#clickActionURL').attr('disabled', false);
@@ -62,6 +63,7 @@ $('#clickActionURL').keyup(function() {
     if( $(this).is(':valid') ) {
         localStorage.clickAction = 'url';
         localStorage.clickAction_url = $(this).val();
+        chrome.extension.sendMessage({});
     }
 });
 
