@@ -27,12 +27,13 @@ var dateOptions = '';
 dateformats.forEach(function(format) {
     dateOptions += '<option value="'+format+'">'+format+' ('+now.format(format)+')</option>'
 });
-$('#titleDateFormat_date').html(dateOptions);
+$('#titleDateFormat_date').html(dateOptions).find('[value="'+localStorage.titleDateFormat_date+'"]').attr('selected', true);
 
 //Time
-var timeOptions = '<option value="G\\:i">24h ('+now.format('G\\:i')+')</option> \
-                   <option value="h\\:i\ A">12h ('+now.format('h\\:i\ A')+')</option>';
-$('#titleDateFormat_time').html(timeOptions);
+var timeOptions = '<option value="G\:i">24h ('+now.format('G\\:i')+')</option> \
+                   <option value="h\:i\ A">12h ('+now.format('h\\:i\ A')+')</option>';
+$('#titleDateFormat_time').html(timeOptions).find('[value="'+localStorage.titleDateFormat_time+'"]').attr('selected', true);
+
 
 //Week
 if(typeof localStorage.titleDateFormat_week !== 'undefined') {
