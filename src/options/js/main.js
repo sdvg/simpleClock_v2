@@ -17,6 +17,10 @@ if(typeof localStorage.color !== 'undefined') {
     $('#color').val(localStorage.color);
 }
 
+//set hoursFormat value:
+$('[name="hoursFormat"][value="'+localStorage.hoursFormat+'"]')
+  .attr('checked', true);
+
 //set "title on hover"-options
 var now = new Date();
 
@@ -58,6 +62,11 @@ $('[name="clickAction"]').change(function() {
             $('#clickActionURL').attr('disabled', false);
             break;
     }
+});
+
+$('[name="hoursFormat"]').change(function () {
+    localStorage.hoursFormat = $(this).val();
+    chrome.extension.sendMessage({});
 });
 
 $('#clickActionURL').keyup(function() {

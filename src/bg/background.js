@@ -1,6 +1,7 @@
 var defaultConfig = {
     'clickAction': 'calendar',
     'color': '#000',
+    'hoursFormat': 'H',
     'titleDateFormat_date': 'd.m.Y',
     'titleDateFormat_time': 'G\\:i',
     'titleDateFormat_week': 'week'
@@ -41,11 +42,11 @@ var setBrowserAction = function() {
 }
 
 var canvas = document.createElement('canvas');
-canvas.width = 19;
-canvas.height = 19;
+canvas.width = 38;
+canvas.height = 38;
 
 var ctx = canvas.getContext('2d');
-ctx.font = '8pt Arial';
+ctx.font = '16pt Arial';
 
 var setTime = function() {
     ctx.fillStyle = localStorage.color;
@@ -53,8 +54,8 @@ var setTime = function() {
 
     var now = new Date();
 
-    ctx.fillText(now.format('H')+':', 0, 8);
-    ctx.fillText(now.format('i'), 7, 19);
+    ctx.fillText(now.format(localStorage.hoursFormat)+':', 0, 16);
+    ctx.fillText(now.format('i'), 14, 38);
 
     chrome.browserAction.setIcon({'imageData': ctx.getImageData(0, 0, canvas.width, canvas.height)});
     chrome.browserAction.setTitle({'title': getTitleFormat(now)});
