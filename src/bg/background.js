@@ -26,9 +26,7 @@ var getTitleFormat = function(date) {
 }
 
 function createTab(tab) {
-    chrome.tabs.create({
-        'url': localStorage.clickAction_url
-    });
+    window.open(localStorage.clickAction_url, '_blank');
 }
 var setBrowserAction = function() {
     chrome.browserAction.onClicked.removeListener(createTab);

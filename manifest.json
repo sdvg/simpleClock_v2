@@ -1,10 +1,8 @@
 {
   "name": "simpleClock",
-  "version": "2.1",
+  "version": "2.2",
   "manifest_version": 2,
-  "permissions": [
-    "tabs"
-  ],
+  "permissions": [],
   "description": "Shows a simple clock top right in the browser. The color is free selectable.",
   "homepage_url": "https://github.com/sdvg/simpleClock_v2",
   "icons": {
