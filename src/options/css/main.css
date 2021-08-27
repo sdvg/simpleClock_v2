@@ -37,7 +37,7 @@ h1:after, .footer:before {
 .footer {
     margin-top: 50px;
     padding-left: 80px;
-    background: url(/icons/icon128.png) no-repeat center left / 63px;
+    background: url(/icons/icon128.png) no-repeat center left / auto 100%;
 }
 
 .footer a {
